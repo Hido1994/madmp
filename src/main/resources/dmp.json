@@ -1,0 +1,139 @@
+{
+  "dmp": {
+    "title": "Correlation between number of marriages in the EU/austria and students of public universities in austria",
+    "description": "Experiment to find out if and how much the number of marriages in the EU and austria correlates with the number of students on public universities in austria.",
+    "language": "en",
+    "created": "2019-04-01T00:00:00.0Z",
+    "modified": "2019-04-10T00:00:00.0Z",
+    "ethical_issues_exist": "no",
+    "contact": {
+      "mail": "e01526409@student.tuwien.ac.at",
+      "name": "David Hinterndorfer",
+      "contact_id": {
+        "contact_id": "https://orcid.org/0000-0002-9909-227X",
+        "contact_id_type": "HTTP-ORCID"
+      }
+    },
+    "dataset": [
+      {
+        "title": "Students on public universities in austria",
+        "description": "Statistical data about marriages in austria and the EU used as input by the python program.",
+        "type": "dataset",
+        "issued": "2019-04-01",
+        "personal_data": "no",
+        "sensitive_data": "no",
+        "distribution": [
+          {
+            "title": "Studierende an öffentlichen Universitäten nach Uni.",
+            "description": "CSV file showing data about students on public universities in austria.",
+            "format": "text/csv",
+            "byte_size": 26000,
+            "data_access": "open",
+            "access_url": "https://www.data.gv.at/katalog/dataset/stat_studierende-an-offentlichen-universitaten-nach-uni",
+            "license": [
+              {
+                "license_ref": "https://creativecommons.org/licenses/by/3.0/",
+                "start_date": "2018-02-12"
+              }
+            ]
+          },
+          {
+            "title": "Studierende an öffentlichen Universitäten nach Uni: C-SEMESTER-0 mapping",
+            "description": "CSV file containing information to map SEMESTER-0 field to year.",
+            "format": "text/csv",
+            "byte_size": 2000,
+            "data_access": "open",
+            "access_url": "https://www.data.gv.at/katalog/dataset/stat_studierende-an-offentlichen-universitaten-nach-uni",
+            "license": [
+              {
+                "license_ref": "https://creativecommons.org/licenses/by/3.0/",
+                "start_date": "2018-02-12"
+              }
+            ]
+          }
+        ]
+      },
+	  {
+        "title": "Marriages in austria and the EU",
+        "description": "Statistical data about marriages in austria and the EU used as input by the python program.",
+        "type": "dataset",
+        "issued": "2019-04-01",
+        "personal_data": "no",
+        "sensitive_data": "no",
+        "distribution": [
+          {
+            "title": "Marriages by sex and previous marital status.",
+            "description": "CSV file showing data about marriages in the EU and austria.",
+            "format": "text/csv",
+            "byte_size": 639000,
+            "data_access": "open",
+            "access_url": "http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_nmsta&lang=en",
+            "license": [
+              {
+                "license_ref": "https://ec.europa.eu/eurostat/about/policies/copyright",
+                "start_date": "1995-01-01"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Source Code",
+        "description": "Source code to execute the experiment",
+        "type": "source-code",
+        "issued": "2019-01-30",
+        "dataset_id": {
+          "dataset_id": "10.5281/zenodo.2634722",
+          "dataset_id_type": "DOI-RAW"
+        },
+        "personal_data": "no",
+        "sensitive_data": "no",
+		"preservation_statement":"this data is relevant to reproduce the experiment and should be considered for long term preservation",
+        "data_quality_assurance": "Different methods were applied to assure quality: Clear versioning, Naming conventions, clear project structure, etc.",
+        "distribution": [
+          {
+            "title": "Python code",
+            "description": "TODO",
+            "accessURL": "https://github.com/Hido1994/exercise1-dmp/tree/1.0.1",
+            "data_access": "open",
+            "license": [
+              {
+                "license_ref": "https://opensource.org/licenses/MIT",
+                "start_date": "2019-04-01"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Produced data",
+        "description": "Data produced when executing the experiment.",
+        "type": "dataset",
+        "issued": "2019-04-01",
+        "dataset_id": {
+          "dataset_id": "10.5281/zenodo.2634722",
+          "dataset_id_type": "DOI-RAW"
+        },
+        "personal_data": "no",
+        "sensitive_data": "no",
+        "data_quality_assurance": "Different methods were applied to assure quality: Clear versioning, Naming conventions, clear project structure, etc.",
+        "distribution": [
+          {
+            "title": "Aggregated dataset",
+            "description": "CSV file that contains data points that combines the number of students on public universities in austria with the numbers of marriages in austria and the EU",
+            "format": "text/csv",
+            "byte_size": 340,
+            "data_access": "open"
+          },
+          {
+            "title": "Correlation plot",
+            "description": "HTML file showing a plot correlating the number of students on public universities in austria with the numbers of marriages in austria and the EU.",
+            "format": "text/html",
+            "byte_size": 3000000,
+            "data_access": "open"
+          }
+        ]
+      }
+    ]
+  }
+}

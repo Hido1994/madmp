@@ -1,0 +1,813 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/rda_dmp_common_standard.json",
+  "type": "object",
+  "title": "RDA DMP Common Standard schema",
+  "description": "JSON Schema for the RDA DMP Common Standard",
+  "required": [
+    "dmp"
+  ],
+  "properties": {
+    "dmp": {
+      "$id": "#/properties/dmp",
+      "type": "object",
+      "title": "The DMP Schema",
+      "required": [
+        "title",
+        "language",
+        "created",
+        "modified",
+        "ethical_issues_exist",
+        "contact",
+        "dataset"
+      ],
+      "properties": {
+        "title": {
+          "$id": "#/properties/dmp/properties/title",
+          "type": "string",
+          "title": "The Title Schema",
+          "examples": [
+            "Correlation between number of marriages in the EU/austria and students of public universities in austria"
+          ]
+        },
+        "description": {
+          "$id": "#/properties/dmp/properties/description",
+          "type": "string",
+          "title": "The Description Schema",
+          "examples": [
+            "Experiment to find out if and how much the number of marriages in the EU and austria correlates with the number of students on public universities in austria."
+          ]
+        },
+        "dmp_id": {
+          "$id": "#/properties/dmp/properties/dmp_id",
+          "type": "object",
+          "title": "The dmp_id Schema",
+          "required": [
+            "dmp_id",
+            "dmp_id_type"
+          ],
+          "properties": {
+            "dmp_id": {
+              "$id": "#/properties/dmp/properties/dmp_id/properties/dmp_id",
+              "type": "string",
+              "title": "The dmp_id Schema"
+            },
+            "dmp_id_type": {
+              "$id": "#/properties/dmp/properties/dmp_id/properties/dmp_id_type",
+              "type": "string",
+              "title": "The dmp_id_type Schema"
+            }
+          }
+        },
+        "language": {
+          "$id": "#/properties/dmp/properties/language",
+          "type": "string",
+          "title": "The Language Schema",
+          "examples": [
+            "en"
+          ]
+        },
+        "created": {
+          "$id": "#/properties/dmp/properties/created",
+          "type": "string",
+          "title": "The Created Schema",
+          "default": null,
+          "examples": [
+            "2019-04-01T00:00:00.0"
+          ],
+          "format": "date-time"
+        },
+        "modified": {
+          "$id": "#/properties/dmp/properties/modified",
+          "type": "string",
+          "title": "The Modified Schema",
+          "default": null,
+          "examples": [
+            "2019-04-10T00:00:00.0"
+          ],
+          "format": "date-time"
+        },
+        "ethical_issues_exist": {
+          "$id": "#/properties/dmp/properties/ethical_issues_exist",
+          "type": "string",
+          "enum": [
+            "yes",
+            "no",
+            "unknown"
+          ],
+          "title": "The ethical_issues_exist Schema",
+          "examples": [
+            "no"
+          ]
+        },
+        "ethical_issues_report": {
+          "$id": "#/properties/dmp/properties/ethical_issues_report",
+          "type": "string",
+          "title": "The ethical_issues_report Schema",
+          "format": "uri"
+        },
+        "ethical_issues_description": {
+          "$id": "#/properties/dmp/properties/ethical_issues_description",
+          "type": "string",
+          "title": "The ethical_issues_description Schema"
+        },
+        "contact": {
+          "$id": "#/properties/dmp/properties/contact",
+          "type": "object",
+          "title": "The Contact Schema",
+          "required": [
+            "mail",
+            "name",
+            "contact_id"
+          ],
+          "properties": {
+            "mail": {
+              "$id": "#/properties/dmp/properties/contact/properties/mail",
+              "type": "string",
+              "title": "The Mail Schema",
+              "default": null,
+              "examples": [
+                "e01526409@student.tuwien.ac.at"
+              ],
+              "format": "email"
+            },
+            "name": {
+              "$id": "#/properties/dmp/properties/contact/properties/name",
+              "type": "string",
+              "title": "The Name Schema",
+              "examples": [
+                "David Hinterndorfer"
+              ]
+            },
+            "contact_id": {
+              "$id": "#/properties/dmp/properties/contact/properties/contact_id",
+              "type": "object",
+              "title": "The Contact_id Schema",
+              "required": [
+                "contact_id",
+                "contact_id_type"
+              ],
+              "properties": {
+                "contact_id": {
+                  "$id": "#/properties/dmp/properties/contact/properties/contact_id/properties/contact_id",
+                  "type": "string",
+                  "title": "The Contact_id Schema",
+                  "examples": [
+                    "https://orcid.org/0000-0002-9909-227X"
+                  ]
+                },
+                "contact_id_type": {
+                  "$id": "#/properties/dmp/properties/contact/properties/contact_id/properties/contact_id_type",
+                  "type": "string",
+                  "title": "The Contact_id_type Schema",
+                  "examples": [
+                    "HTTP-ORCID"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "dm_staff": {
+          "$id": "#/properties/dmp/properties/dm_staff",
+          "type": "array",
+          "title": "The dm_staff Schema",
+          "items": {
+            "$id": "#/properties/dmp/properties/dm_staff/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "properties": {
+              "mbox": {
+                "$id": "#/properties/dmp/properties/dm_staff/items/properties/mbox",
+                "type": "string",
+                "title": "The mbox Schema",
+                "default": null,
+                "examples": [
+                  "e01526409@student.tuwien.ac.at"
+                ],
+                "format": "email"
+              },
+              "name": {
+                "$id": "#/properties/dmp/properties/dm_staff/items/properties/name",
+                "type": "string",
+                "title": "The Name Schema",
+                "examples": [
+                  "David Hinterndorfer"
+                ]
+              },
+              "contributor_type": {
+                "$id": "#/properties/dmp/properties/dm_staff/items/properties/contributor_type",
+                "type": "string",
+                "title": "The contributor_type Schema"
+              },
+              "user_id": {
+                "$id": "#/properties/dmp/properties/dm_staff/items/properties/user_id",
+                "type": "object",
+                "title": "The user_id Schema",
+                "required": [
+                  "user_id"
+                ],
+                "properties": {
+                  "user_id": {
+                    "$id": "#/properties/dmp/properties/dm_staff/items/properties/user_id/properties/user_id",
+                    "type": "string",
+                    "title": "The user_id Schema",
+                    "examples": [
+                      "https://orcid.org/0000-0002-9909-227X"
+                    ]
+                  },
+                  "contact_id_type": {
+                    "$id": "#/properties/dmp/properties/dm_staff/items/properties/user_id/properties/user_id_type",
+                    "type": "string",
+                    "title": "The user_id_type Schema",
+                    "examples": [
+                      "HTTP-ORCID"
+                    ]
+                  }
+                }
+              }
+            },
+            "required": [
+              "name",
+              "contributor_type"
+            ]
+          }
+        },
+        "cost": {
+          "$id": "#/properties/dmp/properties/cost",
+          "type": "array",
+          "title": "The cost Schema",
+          "items": {
+            "$id": "#/properties/dmp/properties/cost/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "default": null,
+            "required": [
+              "title"
+            ],
+            "properties": {
+              "title": {
+                "$id": "#/properties/dmp/properties/cost/items/properties/title",
+                "type": "string",
+                "title": "The Title Schema"
+              },
+              "currency_code": {
+                "$id": "#/properties/dmp/properties/cost/items/properties/currency_code",
+                "type": "string",
+                "title": "The currency_code Schema"
+              },
+              "description": {
+                "$id": "#/properties/dmp/properties/cost/items/properties/description",
+                "type": "string",
+                "title": "The description Schema"
+              },
+              "value": {
+                "$id": "#/properties/dmp/properties/cost/items/properties/value",
+                "type": "number",
+                "title": "The value Schema"
+              }
+            }
+          }
+        },
+        "project": {
+          "$id": "#/properties/dmp/properties/project",
+          "type": "array",
+          "title": "The project Schema",
+          "items": {
+            "$id": "#/properties/dmp/properties/project/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "title",
+              "project_start",
+              "project_end"
+            ],
+            "properties": {
+              "title": {
+                "$id": "#/properties/dmp/properties/project/items/properties/title",
+                "type": "string",
+                "title": "The title Schema"
+              },
+              "description": {
+                "$id": "#/properties/dmp/properties/project/items/properties/description",
+                "type": "string",
+                "title": "The description Schema"
+              },
+              "project_start": {
+                "$id": "#/properties/dmp/properties/project/items/properties/project_start",
+                "type": "string",
+                "title": "The project_start Schema",
+                "examples": [
+                  "2019-04-10T00:00:00.0"
+                ],
+                "format": "date-time"
+              },
+              "project_end": {
+                "$id": "#/properties/dmp/properties/project/items/properties/project_end",
+                "type": "string",
+                "title": "The project_end Schema",
+                "examples": [
+                  "2019-04-10T00:00:00.0"
+                ],
+                "format": "date-time"
+              },
+              "funding": {
+                "$id": "#/properties/dmp/properties/project/items/properties/funding",
+                "type": "array",
+                "title": "The funding Schema",
+                "items": {
+                  "$id": "#/properties/dmp/properties/project/items/properties/funding/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "properties": {
+                    "funding_status": {
+                      "$id": "#/properties/dmp/properties/project/items/properties/funding/items/properties/funding_status",
+                      "type": "string",
+                      "enum": [
+                        "planned",
+                        "applied",
+                        "granted",
+                        "rejected"
+                      ],
+                      "title": "The funding_status Schema",
+                      "examples": [
+                        "planned"
+                      ]
+                    },
+                    "grant_id": {
+                      "$id": "#/properties/dmp/properties/project/items/properties/funding/items/properties/grant_id",
+                      "type": "object",
+                      "title": "The grant_id Schema",
+                      "required": [
+                        "grant_id",
+                        "grant_id_type"
+                      ],
+                      "properties": {
+                        "grant_id": {
+                          "$id": "#/properties/dmp/properties/project/items/properties/funding/items/properties/grant_id/properties/grant_id",
+                          "type": "string",
+                          "title": "The Contact_id Schema",
+                          "examples": [
+                            "https://orcid.org/0000-0002-9909-227X"
+                          ]
+                        },
+                        "grant_id_type": {
+                          "$id": "#/properties/dmp/properties/project/items/properties/funding/items/properties/grant_id/properties/grant_id_type",
+                          "type": "string",
+                          "title": "The Contact_id_type Schema",
+                          "examples": [
+                            "HTTP-ORCID"
+                          ]
+                        }
+                      }
+                    },
+                    "funder_id": {
+                      "$id": "#/properties/dmp/properties/project/items/properties/funding/items/properties/funder_id",
+                      "type": "object",
+                      "title": "The funder_id Schema",
+                      "required": [
+                        "funder_id",
+                        "funder_id_type"
+                      ],
+                      "properties": {
+                        "funder_id": {
+                          "$id": "#/properties/dmp/properties/project/items/properties/funding/items/properties/funder_id/properties/funder_id",
+                          "type": "string",
+                          "title": "The Contact_id Schema"
+                        },
+                        "funder_id_type": {
+                          "$id": "#/properties/dmp/properties/project/items/properties/funding/items/properties/funder_id/properties/funder_id_type",
+                          "type": "string",
+                          "title": "The Contact_id_type Schema"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "grant_id",
+                    "funder_id"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "dataset": {
+          "$id": "#/properties/dmp/properties/dataset",
+          "type": "array",
+          "title": "The Dataset Schema",
+          "items": {
+            "$id": "#/properties/dmp/properties/dataset/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "title",
+              "type",
+              "personal_data",
+              "sensitive_data"
+            ],
+            "properties": {
+              "title": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/title",
+                "type": "string",
+                "title": "The Title Schema",
+                "examples": [
+                  "Statistical data used as input"
+                ]
+              },
+              "description": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/description",
+                "type": "string",
+                "title": "The Description Schema",
+                "examples": [
+                  "Statisitcal data which is used as input by the python program."
+                ]
+              },
+              "type": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/type",
+                "type": "string",
+                "title": "The Type Schema",
+                "examples": [
+                  "dataset"
+                ]
+              },
+              "keyword": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/keyword",
+                "type": "string",
+                "title": "The keyword Schema"
+              },
+              "data_quality_assurance": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/data_quality_assurance",
+                "type": "string",
+                "title": "The data_quality_assurance Schema"
+              },
+              "preservation_statement": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/preservation_statement",
+                "type": "string",
+                "title": "The preservation_statement Schema"
+              },
+              "issued": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/issued",
+                "type": "string",
+                "title": "The Issued Schema",
+                "examples": [
+                  "2019-04-01"
+                ],
+                "format": "date"
+              },
+              "dataset_id": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/dataset_id",
+                "type": "object",
+                "title": "The dataset_id Schema",
+                "required": [
+                  "dataset_id"
+                ],
+                "properties": {
+                  "dataset_id": {
+                    "$id": "#/properties/dmp/properties/dataset/items/properties/dataset_id/properties/dataset_id",
+                    "type": "string",
+                    "title": "The dataset_id Schema"
+                  },
+                  "grant_id_type": {
+                    "$id": "#/properties/dmp/properties/dataset/items/properties/dataset_id/properties/dataset_id_type",
+                    "type": "string",
+                    "title": "The dataset_id_type Schema"
+                  }
+                }
+              },
+              "personal_data": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/personal_data",
+                "type": "string",
+                "enum": [
+                  "yes",
+                  "no",
+                  "unknown"
+                ],
+                "title": "The Personal_data Schema",
+                "examples": [
+                  "no"
+                ]
+              },
+              "sensitive_data": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/sensitive_data",
+                "type": "string",
+                "enum": [
+                  "yes",
+                  "no",
+                  "unknown"
+                ],
+                "title": "The Sensitive_data Schema",
+                "examples": [
+                  "no"
+                ]
+              },
+              "security_and_privacy": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/security_and_privacy",
+                "type": "array",
+                "title": "The security_and_privacy Schema",
+                "items": {
+                  "$id": "#/properties/dmp/properties/dataset/items/properties/security_and_privacy/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "required": [
+                    "title"
+                  ],
+                  "properties": {
+                    "title": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/security_and_privacy/items/properties/title",
+                      "type": "string",
+                      "title": "The Title Schema"
+                    },
+                    "description": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/security_and_privacy/items/properties/description",
+                      "type": "string",
+                      "title": "The Description Schema"
+                    }
+                  }
+                }
+              },
+              "technical_resource": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/technical_resource",
+                "type": "array",
+                "title": "The technical_resource Schema",
+                "items": {
+                  "$id": "#/properties/dmp/properties/dataset/items/properties/technical_resource/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "required": [
+                    "resource_id"
+                  ],
+                  "properties": {
+                    "resource_id": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/technical_resource/properties/resource_id",
+                      "type": "object",
+                      "title": "The resource_id Schema",
+                      "required": [
+                        "technical_resource_id",
+                        "technical_resource_id_type"
+                      ],
+                      "properties": {
+                        "technical_resource_id": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/technical_resource/properties/resource_id/properties/technical_resource_id",
+                          "type": "string",
+                          "title": "The technical_resource_id Schema"
+                        },
+                        "technical_resource_id_type": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/technical_resource/properties/resource_id/properties/technical_resource_id_type",
+                          "type": "string",
+                          "title": "The technical_resource_id_type Schema"
+                        }
+                      }
+                    },
+                    "description": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/technical_resource/items/properties/description",
+                      "type": "string",
+                      "title": "The Description Schema"
+                    }
+                  }
+                }
+              },
+              "metadata": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/metadata",
+                "type": "array",
+                "title": "The metadata Schema",
+                "items": {
+                  "$id": "#/properties/dmp/properties/dataset/items/properties/metadata/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "required": [
+                    "metadata_id"
+                  ],
+                  "properties": {
+                    "metadata_id": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/metadata/properties/metadata_id",
+                      "type": "object",
+                      "title": "The metadata_id Schema",
+                      "required": [
+                        "metadata_id",
+                        "metadata_id_type"
+                      ],
+                      "properties": {
+                        "metadata_id": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/metadata/properties/metadata_id/properties/metadata_id",
+                          "type": "string",
+                          "title": "The metadata_id Schema"
+                        },
+                        "metadata_id_type": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/metadata/properties/metadata_id/properties/metadata_id_type",
+                          "type": "string",
+                          "title": "The metadata_id_type Schema"
+                        }
+                      }
+                    },
+                    "description": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/metadata/items/properties/description",
+                      "type": "string",
+                      "title": "The Description Schema"
+                    },
+                    "language": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/metadata/items/properties/language",
+                      "type": "string",
+                      "title": "The Language Schema",
+                      "examples": [
+                        "en"
+                      ]
+                    }
+                  }
+                }
+              },
+              "distribution": {
+                "$id": "#/properties/dmp/properties/dataset/items/properties/distribution",
+                "type": "array",
+                "title": "The Distribution Schema",
+                "items": {
+                  "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "required": [
+                    "title",
+                    "data_access"
+                  ],
+                  "properties": {
+                    "title": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/title",
+                      "type": "string",
+                      "title": "The Title Schema",
+                      "examples": [
+                        "Studierende an öffentlichen Universitäten nach Uni."
+                      ]
+                    },
+                    "description": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/description",
+                      "type": "string",
+                      "title": "The Description Schema",
+                      "examples": [
+                        "CSV file showing data about students on public universities in austria."
+                      ]
+                    },
+                    "format": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/format",
+                      "type": "string",
+                      "title": "The Format Schema",
+                      "examples": [
+                        "text/csv"
+                      ]
+                    },
+                    "byte_size": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/byte_size",
+                      "type": "number",
+                      "title": "The Byte_size Schema",
+                      "examples": [
+                        "26000"
+                      ]
+                    },
+                    "data_access": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/data_access",
+                      "type": "string",
+                      "enum": [
+                        "open",
+                        "closed",
+                        "shared"
+                      ],
+                      "title": "The Data_access Schema",
+                      "examples": [
+                        "open"
+                      ]
+                    },
+                    "access_url": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/access_url",
+                      "type": "string",
+                      "title": "The Access_url Schema",
+                      "examples": [
+                        "https://www.data.gv.at/katalog/dataset/stat_studierende-an-offentlichen-universitaten-nach-uni"
+                      ],
+                      "format": "uri"
+                    },
+                    "download_url": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/download_url",
+                      "type": "string",
+                      "title": "The download_url Schema",
+                      "examples": [
+                        "https://www.data.gv.at/katalog/dataset/stat_studierende-an-offentlichen-universitaten-nach-uni"
+                      ],
+                      "format": "uri"
+                    },
+                    "media_type": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/media_type",
+                      "type": "string",
+                      "title": "The media_type Schema"
+                    },
+                    "available_till": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/available_till",
+                      "type": "string",
+                      "title": "The available_till Schema",
+                      "format": "date"
+                    },
+                    "license": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/license",
+                      "type": "array",
+                      "title": "The License Schema",
+                      "items": {
+                        "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/license/items",
+                        "type": "object",
+                        "title": "The Items Schema",
+                        "required": [
+                          "license_ref",
+                          "start_date"
+                        ],
+                        "properties": {
+                          "license_ref": {
+                            "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/license/items/properties/license_ref",
+                            "type": "string",
+                            "title": "The License_ref Schema",
+                            "examples": [
+                              "https://creativecommons.org/licenses/by/3.0/"
+                            ],
+                            "format": "uri"
+                          },
+                          "start_date": {
+                            "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/license/items/properties/start_date",
+                            "type": "string",
+                            "title": "The Start_date Schema",
+                            "examples": [
+                              "2018-02-12"
+                            ],
+                            "format": "date"
+                          }
+                        }
+                      }
+                    },
+                    "host": {
+                      "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host",
+                      "type": "object",
+                      "title": "The host Schema",
+                      "required": [
+                        "title"
+                      ],
+                      "properties": {
+                        "title": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host/properties/title",
+                          "type": "string",
+                          "title": "The Title Schema"
+                        },
+                        "description": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host/properties/description",
+                          "type": "string",
+                          "title": "The description Schema"
+                        },
+                        "support_versioning": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host/properties/support_versioning",
+                          "type": "string",
+                          "enum": [
+                            "yes",
+                            "no",
+                            "unknown"
+                          ],
+                          "title": "The support_versioning Schema",
+                          "examples": [
+                            "no"
+                          ]
+                        },
+                        "backup_type": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host/properties/backup_type",
+                          "type": "string",
+                          "title": "The backup_type Schema"
+                        },
+                        "backup_frequency": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host/properties/backup_frequency",
+                          "type": "string",
+                          "title": "The backup_frequency Schema"
+                        },
+                        "availability": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host/properties/availability",
+                          "type": "string",
+                          "title": "The availability Schema"
+                        },
+                        "certified_with": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host/properties/certified_with",
+                          "type": "string",
+                          "title": "The certified_with Schema"
+                        },
+                        "geo_location": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host/properties/geo_location",
+                          "type": "string",
+                          "title": "The geo_location Schema"
+                        },
+                        "pid_system": {
+                          "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host/properties/pid_system",
+                          "type": "string",
+                          "title": "The pid_system Schema"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
