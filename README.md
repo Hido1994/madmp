@@ -11,7 +11,7 @@ Also the workflow has to be modified over the api so that dataverse talk to this
 # MaDMP - Workflow
 The first feature is ....
 
-![Workflow](https://github.com/Hido1994/madmp/blob/master/docs/workflow.png "MaDMP - Workflow process")
+![Workflow](https://github.com/Hido1994/madmp/blob/master/docs/workflow.png?raw=true "MaDMP - Workflow process")
 
 ## Installation & Configuration
 * Create workflow
@@ -38,7 +38,7 @@ curl -X POST -H "Content-Type: application/json" \
 # MaDMP - Export
 The second feature is ....
 
-![Extension](https://github.com/Hido1994/madmp/blob/master/docs/extension.png "MaDMP - Export process")
+![Extension](https://github.com/Hido1994/madmp/blob/master/docs/extension.png?raw=true "MaDMP - Export process")
 
 ## Installation & Configuration
 
