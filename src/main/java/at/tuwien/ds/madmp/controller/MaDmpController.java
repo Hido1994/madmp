@@ -69,11 +69,6 @@ public class MaDmpController {
                       HttpServletResponse httpServletResponse) throws IOException {
         LOG.info("String maDmp process - invocationId: {}, datasetId {}", invocationId, datasetId);
 
-        //Send response
-        PrintWriter writer = httpServletResponse.getWriter();
-        writer.println("OK");
-        writer.flush();
-
         try {
             String url
                 = dataverseAddress + "/api/datasets/" + datasetId + "?key=" + apiKey;
@@ -123,7 +118,7 @@ public class MaDmpController {
                     "          \"typeName\": \"title\",\n" +
                     "          \"multiple\": false,\n" +
                     "          \"typeClass\": \"primitive\",\n" +
-                    "          \"value\": \"testtitle\"\n" +
+                    "          \"value\": \"TestTest\"\n" +
                     "        },\n" +
                     "        {\n" +
                     "          \"typeName\": \"author\",\n" +
@@ -207,15 +202,12 @@ public class MaDmpController {
                 LOG.debug("Update dataset metadata over {}: {}", url, metadataBlock.toString());
                 response=restTemplate.exchange(url, HttpMethod.PUT, new HttpEntity<>(metadataBlock.toString()), String.class);
 
-                LOG.info(response.getBody());
-
                 if (deleteMaDmp) {
                     //TODO: delete dmp file
                 }
             } else {
                 LOG.info("No maDMP found!");
             }
-
         } catch (JSONException e) {
             LOG.error("An error occured while reading maDmp or schema", e);
             //Don't throw exception because uploading maDmp should be optional
@@ -228,12 +220,16 @@ public class MaDmpController {
             //throw new MaDmpException("An error occured while validating maDmp or
             // schema", e);
         } finally {
+            //Send response
+            PrintWriter writer = httpServletResponse.getWriter();
+            writer.println("OK");
+            writer.flush();
+
             String url = dataverseAddress + "/api/workflows/" + invocationId;
-            restTemplate.postForEntity(url, "FAILURE",
+            restTemplate.postForEntity(url, "OK",
                 String.class);   //Send failure for testing
             LOG.debug("Publishing dataset over {}", url);
         }
-
     }
 
     @GetMapping("/hello")
