@@ -21,7 +21,6 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -107,102 +106,39 @@ public class MaDmpController {
 
                 //Metadata update according madmp
                 LOG.info("Updating metadata");
-                String title = maDmpJson.getJSONObject("dmp").getString("title");
 
-                JSONObject metadataBlock = new JSONObject("{\n" +
-                    "  \"metadataBlocks\": {\n" +
-                    "    \"citation\": {\n" +
-                    "      \"displayName\": \"Citation Metadata\",\n" +
-                    "      \"fields\": [\n" +
-                    "        {\n" +
-                    "          \"typeName\": \"title\",\n" +
-                    "          \"multiple\": false,\n" +
-                    "          \"typeClass\": \"primitive\",\n" +
-                    "          \"value\": \"TestTest\"\n" +
-                    "        },\n" +
-                    "        {\n" +
-                    "          \"typeName\": \"author\",\n" +
-                    "          \"multiple\": true,\n" +
-                    "          \"typeClass\": \"compound\",\n" +
-                    "          \"value\": [\n" +
-                    "            {\n" +
-                    "              \"authorName\": {\n" +
-                    "                \"typeName\": \"authorName\",\n" +
-                    "                \"multiple\": false,\n" +
-                    "                \"typeClass\": \"primitive\",\n" +
-                    "                \"value\": \"Spruce, Sabrina\"\n" +
-                    "              }\n" +
-                    "            }\n" +
-                    "          ]\n" +
-                    "        },\n" +
-                    "        {\n" +
-                    "          \"typeName\": \"datasetContact\",\n" +
-                    "          \"multiple\": true,\n" +
-                    "          \"typeClass\": \"compound\",\n" +
-                    "          \"value\": [\n" +
-                    "            {\n" +
-                    "              \"datasetContactName\": {\n" +
-                    "                \"typeName\": \"datasetContactName\",\n" +
-                    "                \"multiple\": false,\n" +
-                    "                \"typeClass\": \"primitive\",\n" +
-                    "                \"value\": \"Spruce, Sabrina\"\n" +
-                    "              },\n" +
-                    "              \"datasetContactEmail\": {\n" +
-                    "                \"typeName\": \"datasetContactEmail\",\n" +
-                    "                \"multiple\": false,\n" +
-                    "                \"typeClass\": \"primitive\",\n" +
-                    "                \"value\": \"spruce@mailinator.com\"\n" +
-                    "              }\n" +
-                    "            }\n" +
-                    "          ]\n" +
-                    "        },\n" +
-                    "        {\n" +
-                    "          \"typeName\": \"dsDescription\",\n" +
-                    "          \"multiple\": true,\n" +
-                    "          \"typeClass\": \"compound\",\n" +
-                    "          \"value\": [\n" +
-                    "            {\n" +
-                    "              \"dsDescriptionValue\": {\n" +
-                    "                \"typeName\": \"dsDescriptionValue\",\n" +
-                    "                \"multiple\": false,\n" +
-                    "                \"typeClass\": \"primitive\",\n" +
-                    "                \"value\": \"test\"\n" +
-                    "              }\n" +
-                    "            }\n" +
-                    "          ]\n" +
-                    "        },\n" +
-                    "        {\n" +
-                    "          \"typeName\": \"subject\",\n" +
-                    "          \"multiple\": true,\n" +
-                    "          \"typeClass\": \"controlledVocabulary\",\n" +
-                    "          \"value\": [\n" +
-                    "            \"Other\"\n" +
-                    "          ]\n" +
-                    "        },\n" +
-                    "        {\n" +
-                    "          \"typeName\": \"depositor\",\n" +
-                    "          \"multiple\": false,\n" +
-                    "          \"typeClass\": \"primitive\",\n" +
-                    "          \"value\": \"Spruce, Sabrina\"\n" +
-                    "        },\n" +
-                    "        {\n" +
-                    "          \"typeName\": \"dateOfDeposit\",\n" +
-                    "          \"multiple\": false,\n" +
-                    "          \"typeClass\": \"primitive\",\n" +
-                    "          \"value\": \"2017-04-19\"\n" +
-                    "        }\n" +
-                    "      ]\n" +
-                    "    }\n" +
-                    "  }\n" +
-                    "}");
+                JSONArray metadataFieldsArray = new JSONArray();
+
+                JSONObject dmpObject = maDmpJson.getJSONObject("dmp");
+
+                String title = dmpObject.getString("title");
+                String description = dmpObject.getString("description");
+                if (title != null) {
+                    metadataFieldsArray.put(new JSONObject().put("typeName", "title")
+                        .put("value", title));
+                }
+                if (description != null) {
+                    metadataFieldsArray.put(new JSONObject().put("typeName", "dsDescription")
+                        .put("value", new JSONArray()
+                            .put(new JSONObject()
+                                .put("dsDescriptionValue", new JSONObject()
+                                        .put("typeName", "dsDescriptionValue")
+                                        .put("value", description)))));
+                }
 
 
-                url = dataverseAddress + "/api/datasets/" + datasetId + "/versions/:draft" +
-                    "?key=" + apiKey;
-                LOG.debug("Update dataset metadata over {}: {}", url, metadataBlock.toString());
-                response=restTemplate.exchange(url, HttpMethod.PUT, new HttpEntity<>(metadataBlock.toString()), String.class);
+                JSONObject metadataFields = new JSONObject().put("fields",
+                    metadataFieldsArray);
+
+
+                url = dataverseAddress + "/api/datasets/" + datasetId + "/editMetadata" +
+                    "?key=" + apiKey + "&replace=true";
+                LOG.debug("Update dataset metadata over {}: {}", url, metadataFields.toString());
+                restTemplate.exchange(url, HttpMethod.PUT,
+                    new HttpEntity<>(metadataFields.toString()), String.class);
 
                 if (deleteMaDmp) {
+                    LOG.info("Deleting maDMP file.");
                     //TODO: delete dmp file
                 }
             } else {
@@ -226,14 +162,9 @@ public class MaDmpController {
             writer.flush();
 
             String url = dataverseAddress + "/api/workflows/" + invocationId;
-            restTemplate.postForEntity(url, "OK",
+            restTemplate.postForEntity(url, "FAILURE",
                 String.class);   //Send failure for testing
             LOG.debug("Publishing dataset over {}", url);
         }
-    }
-
-    @GetMapping("/hello")
-    String helloWorld() throws IOException {
-        return "Hello World";
     }
 }
