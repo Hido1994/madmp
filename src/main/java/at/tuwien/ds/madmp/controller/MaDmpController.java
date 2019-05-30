@@ -21,6 +21,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -60,6 +61,12 @@ public class MaDmpController {
             throw new MaDmpException("Failed to retrieve schema from classpath", e);
         }
 
+    }
+
+    @GetMapping("/madmp/ext")
+    String export(){
+        LOG.info("External Tool called");
+        return "Hello World external Tool";
     }
 
     @PostMapping("/madmp/{invocationId}/{datasetId}")

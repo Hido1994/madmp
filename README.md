@@ -42,6 +42,11 @@ The second feature is ....
 
 ## Installation & Configuration
 
+```
+curl -X POST -H 'Content-type: application/json' \
+-d '{"displayName":"maDMP Export","description":"Export as maDMP block.","type":"explore","contentType":"application/json","toolUrl":"http://localhost:8081/madmp/ext","toolParameters":{"queryParameters":[{"fileid":"{fileId}"},{"key":"{apiToken}"}]}}' http://localhost:8080/api/admin/externalTools
+```
+
 
 ## Execution
 
