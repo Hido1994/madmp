@@ -1,5 +1,6 @@
 package at.tuwien.ds.madmp.controller;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -18,12 +19,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -64,9 +69,45 @@ public class MaDmpController {
     }
 
     @GetMapping("/madmp/ext")
-    String export(){
-        LOG.info("External Tool called");
-        return "Hello World external Tool";
+    ResponseEntity<InputStreamResource> export(@RequestParam(name = "fileid") String fileId,
+                                               @RequestParam(name = "datasetid") String datasetId) {
+        LOG.info("External Tool called - fileid: {}, datasetid {}", fileId, datasetId);
+
+        String url = dataverseAddress + "/api/datasets/" + datasetId + "?key=" + apiKey;
+        ResponseEntity<String> response
+            = restTemplate.getForEntity(url, String.class);
+        JSONObject metadataJson = new JSONObject(response.getBody());
+        LOG.debug("Retrieved from {} maDMP: {}", url, metadataJson);
+
+        JSONArray metadataFields = metadataJson.getJSONObject("data")
+            .getJSONObject("latestVersion")
+            .getJSONObject("metadataBlocks")
+            .getJSONObject("citation")
+            .getJSONArray("fields");
+
+        String title = "";
+        for (int i = 0; i < metadataFields.length(); i++) {
+            JSONObject field = metadataFields.getJSONObject(i);
+            if (field.getString("typeName").equals("title")) {
+                title = field.getString("value");
+            }
+        }
+
+        //Build JSON
+        JSONObject result = new JSONObject().put("title", title)
+            .put("type", "dataset")
+            .put("personal_data", "unknown")
+            .put("sensitive_data", "unknown");
+        //TODO: add different fields to json output
+
+        InputStreamResource resource = new InputStreamResource(
+            new ByteArrayInputStream(result.toString().getBytes()));
+
+        return ResponseEntity.ok()
+            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"dataset-" + datasetId + ".json\"")
+            .contentType(MediaType.parseMediaType("application/octet-stream"))
+            .contentLength(result.toString().length())
+            .body(resource);
     }
 
     @PostMapping("/madmp/{invocationId}/{datasetId}")
@@ -83,10 +124,11 @@ public class MaDmpController {
             JSONObject dataset = new JSONObject(response.getBody());
 
             LOG.debug("Retrieved from {} dataset: {}", url, dataset.toString());
-
             JSONArray filesInDataset = dataset.getJSONObject("data").getJSONObject(
                 "latestVersion").getJSONArray("files");
             Integer fileId = null;
+
+            LOG.info("Search for maDMP in dataset");
             for (int i = 0; i < filesInDataset.length(); i++) {
                 JSONObject file = filesInDataset.getJSONObject(i);
                 if (file.getString("label").equals(maDmpFilename)) {
@@ -95,7 +137,7 @@ public class MaDmpController {
             }
 
             if (fileId != null) {
-                LOG.info("madmp.json found in dataset");
+                LOG.info("maDMP found in dataset");
 
                 url = dataverseAddress + "/api/access/datafile/" + fileId + "?key=" + apiKey;
                 response
@@ -120,6 +162,7 @@ public class MaDmpController {
 
                 String title = dmpObject.getString("title");
                 String description = dmpObject.getString("description");
+                JSONObject contact = dmpObject.getJSONObject("contact");
                 if (title != null) {
                     metadataFieldsArray.put(new JSONObject().put("typeName", "title")
                         .put("value", title));
@@ -129,9 +172,34 @@ public class MaDmpController {
                         .put("value", new JSONArray()
                             .put(new JSONObject()
                                 .put("dsDescriptionValue", new JSONObject()
-                                        .put("typeName", "dsDescriptionValue")
-                                        .put("value", description)))));
+                                    .put("typeName", "dsDescriptionValue")
+                                    .put("value", description)))));
                 }
+                if (contact != null) {
+                    //Author block
+                    metadataFieldsArray.put(new JSONObject().put("typeName", "author")
+                        .put("value", new JSONArray()
+                            .put(new JSONObject()
+                                .put("authorName", new JSONObject()
+                                    .put("typeName", "authorName")
+                                    .put("value", contact.getString("name")))
+                                .put("authorIdentifier", new JSONObject()
+                                    .put("typeName", "authorIdentifier")
+                                    .put("value", contact.getJSONObject("contact_id")
+                                        .getString("contact_id"))))));
+
+                    //Contact block
+                    metadataFieldsArray.put(new JSONObject().put("typeName", "datasetContact")
+                        .put("value", new JSONArray()
+                            .put(new JSONObject()
+                                .put("datasetContactName", new JSONObject()
+                                    .put("typeName", "datasetContactName")
+                                    .put("value", contact.getString("name")))
+                                .put("datasetContactEmail", new JSONObject()
+                                    .put("typeName", "datasetContactEmail")
+                                    .put("value", contact.getString("mail"))))));
+                }
+                //TODO: Add other metadata fields
 
 
                 JSONObject metadataFields = new JSONObject().put("fields",
@@ -162,16 +230,18 @@ public class MaDmpController {
             }
             //throw new MaDmpException("An error occured while validating maDmp or
             // schema", e);
-        } finally {
-            //Send response
-            PrintWriter writer = httpServletResponse.getWriter();
-            writer.println("OK");
-            writer.flush();
-
-            String url = dataverseAddress + "/api/workflows/" + invocationId;
-            restTemplate.postForEntity(url, "FAILURE",
-                String.class);   //Send failure for testing
-            LOG.debug("Publishing dataset over {}", url);
         }
+        //Send response
+        PrintWriter writer = httpServletResponse.getWriter();
+        writer.println("OK");
+        writer.flush();
+
+        //Unlock dataset
+        String url = dataverseAddress + "/api/workflows/" + invocationId;
+        restTemplate.postForEntity(url, "FAILURE",
+            String.class);   //Send FAILURE for testing, change to OK in production to publish
+        // dataset
+        LOG.debug("Publishing dataset over {}", url);
+
     }
 }
