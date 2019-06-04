@@ -121,3 +121,12 @@ The application than generates a JSON-File and trigger the download in the brows
 3. The downloaded file contains a dataset block which simply can be added to a maDMP.  
 ![Exported](https://github.com/Hido1994/madmp/blob/master/docs/images/exported_json.png?raw=true "Exported JSON")
 
+# DMP Files
+
+* DMP and maDMP of David Hinterndorfer
+![Exported](https://github.com/Hido1994/madmp/blob/master/docs/dmp_dcc_01256409.pdf)
+![Exported](https://github.com/Hido1994/madmp/blob/master/docs/exercise2_dmp_01526409.json)
+
+* DMP and maDMP of Ahmad Alhirthani
+![Exported](https://github.com/Hido1994/madmp/blob/master/docs/exercise2_dmp_11848870.json)
+TODO - Ahmad DMP
