@@ -46,7 +46,6 @@ To configure the workflow extension the following commands have to be called:
 * Create the workflow  
 ```
 export DATAVERSE_ADDRESS="http://localhost:8080"
-
 curl -X POST -H "Content-Type: application/json" \
  -d '{"name":"maDMP workflow","steps":[{"provider":":internal","stepType":"http/sr","parameters":{"url":"http://localhost:8081/madmp/${invocationId}/${dataset.id}","method":"POST","contentType":"text/plain","body":"","expectedResponse":"OK.*"}}]}' \
  ${DATAVERSE_ADDRESS}/api/admin/workflows/
@@ -66,9 +65,6 @@ To configure the export functionality the application must simply be registered 
 ```
 curl -X POST -H 'Content-type: application/json' \
 -d '{"displayName":"maDMP Export","description":"Export as maDMP block.","type":"explore","contentType":"application/json","toolUrl":"http://localhost:8081/madmp/ext","toolParameters":{"queryParameters":[{"fileid":"{fileId}"},{"datasetid":"{datasetId}"}]}}' ${DATAVERSE_ADDRESS}/api/admin/externalTools
-```
-  
-```
 curl -X POST -H 'Content-type: text/x-python' \
 -d '{"displayName":"maDMP Export","description":"Export as maDMP block.","type":"explore","contentType":"application/json","toolUrl":"http://localhost:8081/madmp/ext","toolParameters":{"queryParameters":[{"fileid":"{fileId}"},{"datasetid":"{datasetId}"}]}}' ${DATAVERSE_ADDRESS}/api/admin/externalTools
 ```
