@@ -45,6 +45,19 @@ The following configurations are important:
 
 TODO - table with configuration parameters
 
+# Running the project
+After the configuration of the application is finished. The project is ready to be executed.
+To do that you have to run the following commands:
+* Compile the project and create the executable (.jar)
+```
+mvn clean install
+```
+
+* After that the executable jar-file is located in the /target folder which simply can be executed with the java -jar command
+```
+java -jar [executable-name].jar
+```
+
 # MaDMP - Workflow
 The first feature is ....
 
