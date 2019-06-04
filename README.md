@@ -1,7 +1,7 @@
 # IN PROGRESS - Data Stewardship Exercise 2
 
 # Introduction
-This project was created for a course the course Data Stewardship on the TU Wien in SS2019.
+This project was created for the course Data Stewardship on the TU Wien in SS2019.
 It serves as extension to Dataverse and therefore is dependent on a running instance of dataverse.
 When running this project it provides two functionalities/extensions to dataverse:
 * Import metadata from an maDMP 
