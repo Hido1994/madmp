@@ -75,7 +75,7 @@ After that a button `Explore` appears in the list of files in a dataset for each
 
 
 ## application.properties
-To configure this application there can be found an `application.properties` file under /src/main/resources.
+To configure this application there can be found an `application.properties` file under `/src/main/resources`.
 The following configurations are important:
 
 Parameter | Description | Default
