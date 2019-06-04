@@ -21,6 +21,20 @@ This section can be skipped if an running dataverse instance is already availabl
 * It also would be possible to run dataverse containerized in docker. To do this the following steps have to be done
   * TODO steps for dataverse-docker
 
+# Running the project
+* First you have to download the sources from https://github.com/Hido1994/madmp
+* After that you can configure the application as described in the next section 
+* After the configuration is finished the project can be compiled
+```
+mvn clean install
+```
+* After that a jar-file is generated in the target/ directory which can simply be excuted with the java command
+```
+java -jar [executable-name].jar
+```
+
+Hint: It would also be possible to simply run the code in and IDE.
+
 # Configuration
 To configure dataverse and our application to communicate with each other we have to modify some configurations on both sides.
 
@@ -30,20 +44,21 @@ To configure dataverse to establish the connection with our application we use t
 ### Workflow
 * Create Workflow
 ```
+export DATAVERSE_ADDRESS="http://localhost:8080"
+
 curl -X POST -H "Content-Type: application/json" \
  -d '{"name":"maDMP workflow","steps":[{"provider":":internal","stepType":"http/sr","parameters":{"url":"http://localhost:8081/madmp/${invocationId}/${dataset.id}","method":"POST","contentType":"text/plain","body":"","expectedResponse":"OK.*"}}]}' \
- http://localhost:8080/api/admin/workflows/
+ ${DATAVERSE_ADDRESS}/api/admin/workflows/
 ```
+
 * Set Workflow
-```
-TODO
-```
+
 
 ### External tool
 * Register external tool
 ```
 curl -X POST -H 'Content-type: application/json' \
--d '{"displayName":"maDMP Export","description":"Export as maDMP block.","type":"explore","contentType":"application/json","toolUrl":"http://localhost:8081/madmp/ext","toolParameters":{"queryParameters":[{"fileid":"{fileId}"},{"datasetid":"{datasetId}"}]}}' http://localhost:8080/api/admin/externalTools
+-d '{"displayName":"maDMP Export","description":"Export as maDMP block.","type":"explore","contentType":"application/json","toolUrl":"http://localhost:8081/madmp/ext","toolParameters":{"queryParameters":[{"fileid":"{fileId}"},{"datasetid":"{datasetId}"}]}}' ${DATAVERSE_ADDRESS}/api/admin/externalTools
 ```
 
 ## application.properties
@@ -52,18 +67,6 @@ The following configurations are important:
 
 TODO - table with configuration parameters
 
-# Running the project
-After the configuration of the application is finished. The project is ready to be executed.
-To do that you have to run the following commands:
-* Compile the project and create the executable (.jar)
-```
-mvn clean install
-```
-
-* After that the executable jar-file is located in the /target folder which simply can be executed with the java -jar command
-```
-java -jar [executable-name].jar
-```
 
 # MaDMP - Workflow
 The first feature is ....
