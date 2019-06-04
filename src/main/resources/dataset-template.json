@@ -1,0 +1,92 @@
+{
+  "datasetVersion": {
+    "license": "NONE",
+    "termsOfUse": "",
+    "metadataBlocks": {
+      "citation": {
+        "fields": [
+          {
+            "value": "",
+            "typeClass": "primitive",
+            "multiple": false,
+            "typeName": "title"
+          },
+          {
+            "value": [
+              {
+                "authorName": {
+                  "value": "",
+                  "typeClass": "primitive",
+                  "multiple": false,
+                  "typeName": "authorName"
+                }
+              }
+            ],
+            "typeClass": "compound",
+            "multiple": true,
+            "typeName": "author"
+          },
+          {
+            "value": [
+              {
+                "datasetContactEmail": {
+                  "typeClass": "primitive",
+                  "multiple": false,
+                  "typeName": "datasetContactEmail",
+                  "value": ""
+                },
+                "datasetContactName": {
+                  "typeClass": "primitive",
+                  "multiple": false,
+                  "typeName": "datasetContactName",
+                  "value": ""
+                }
+              }
+            ],
+            "typeClass": "compound",
+            "multiple": true,
+            "typeName": "datasetContact"
+          },
+          {
+            "value": [
+              {
+                "dsDescriptionValue": {
+                  "value": "",
+                  "multiple": false,
+                  "typeClass": "primitive",
+                  "typeName": "dsDescriptionValue"
+                }
+              }
+            ],
+            "typeClass": "compound",
+            "multiple": true,
+            "typeName": "dsDescription"
+          },
+          {
+            "value": [
+              "Other"
+            ],
+            "typeClass": "controlledVocabulary",
+            "multiple": true,
+            "typeName": "subject"
+          },
+          {
+            "typeName": "notesText",
+            "multiple": false,
+            "typeClass": "primitive",
+            "value": ""
+          },
+          {
+            "typeName": "language",
+            "multiple": true,
+            "typeClass": "controlledVocabulary",
+            "value": [
+              "English"
+            ]
+          }
+        ],
+        "displayName": "Citation Metadata"
+      }
+    }
+  }
+}
