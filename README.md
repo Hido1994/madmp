@@ -14,6 +14,13 @@ Further the following software has to be installed to compile and run the projec
 * Java 8 or higher (Java 8 is also required by dataverse)
 * Maven
 
+## Running Dataverse
+Because one of the prerequisite is a running dataverse instance this section contains some steps to execute dataverse.  
+This section can be skipped if an running dataverse instance is already available.
+* To install dataverse locally you can follow the instructions on http://guides.dataverse.org/en/latest/developers/dev-environment.html
+* It also would be possible to run dataverse containerized in docker. To do this the following steps have to be done
+  * TODO steps for dataverse-docker
+
 # Configuration
 To configure dataverse and our application to communicate with each other we have to modify some configurations on both sides.
 
