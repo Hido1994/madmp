@@ -38,12 +38,12 @@ Hint: It would also be possible to simply run the code in an IDE.
 To configure dataverse and our application to communicate with each other we have to modify some configurations on both sides.
 
 ## Dataverse
-To configure dataverse to establish the connection with our application we use the api.
-The api is reachable over rest and therefore the `curl` command or a rest client can be used.
+To configure dataverse to establish the connection with our application we use the api.  
+The api is reachable over REST and therefore the `curl` command or a REST client can be used.
 
 ### Workflow
 To configure the workflow extension the following commands have to be called:
-* Create the workflow
+* Create the workflow  
 ```
 export DATAVERSE_ADDRESS="http://localhost:8080"
 
@@ -62,12 +62,12 @@ After that the workflow should be registered and triggered before a Dataset is p
 ### External tool
 To configure the export functionality the application must simply be registered as external tool.
 
-* Register external tool
+* Register external tool  
 ```
 curl -X POST -H 'Content-type: application/json' \
 -d '{"displayName":"maDMP Export","description":"Export as maDMP block.","type":"explore","contentType":"application/json","toolUrl":"http://localhost:8081/madmp/ext","toolParameters":{"queryParameters":[{"fileid":"{fileId}"},{"datasetid":"{datasetId}"}]}}' ${DATAVERSE_ADDRESS}/api/admin/externalTools
 ```
-
+  
 ```
 curl -X POST -H 'Content-type: text/x-python' \
 -d '{"displayName":"maDMP Export","description":"Export as maDMP block.","type":"explore","contentType":"application/json","toolUrl":"http://localhost:8081/madmp/ext","toolParameters":{"queryParameters":[{"fileid":"{fileId}"},{"datasetid":"{datasetId}"}]}}' ${DATAVERSE_ADDRESS}/api/admin/externalTools
@@ -86,9 +86,9 @@ Parameter | Description | Default
 --- | --- | ---
 **dataverse.address** | Defines address of dataverse instance | http://localhost:8080
 **dataverse.api.key** | Defines API-Key | 5f965eaf-...
-workflow.madmp.filename | Defines filename of maDMP in dataset | dmp.json
-server.port | Change server port | 8081
-logging.level.at.tuwien | Change log-level | info
+**workflow.madmp.filename** | Defines filename of maDMP in dataset | dmp.json
+**server.port** | Change server port | 8081
+**logging.level.at.tuwien** | Change log-level | info
 
 # MaDMP - Workflow
 In this section the general process of the workflow feature is described.
