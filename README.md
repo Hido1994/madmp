@@ -54,6 +54,10 @@ curl -X POST -H "Content-Type: application/json" \
 Hint: If the project is running on another port the url parameter has to be modified.
 
 * Set workflow as default  
+```
+curl -X PUT -d '1' http://localhost:8080/api/admin/workflows/default/PrePublishDataset
+```
+Also it is possible to simply use a REST client.  
 ![SetWorkflow](https://github.com/Hido1994/madmp/blob/master/docs/images/set_workflow.png?raw=true "Set workflow")
 
 After that the workflow should be registered and triggered before a Dataset is published.
