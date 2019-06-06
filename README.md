@@ -41,6 +41,10 @@ To configure dataverse and our application to communicate with each other we hav
 To configure dataverse to establish the connection with our application we use the api.  
 The api is reachable over REST and therefore the `curl` command or a REST client can be used.
 
+### Template
+To simplify the process of creating the initial dataset for the researcher a template can be added to dataverse so the data is prefilled.  
+TODO
+
 ### Workflow
 To configure the workflow extension the following commands have to be called:
 * Create the workflow  
@@ -126,11 +130,16 @@ The application than generates a JSON-File and trigger the download in the brows
 ![Exported](https://github.com/Hido1994/madmp/blob/master/docs/images/exported_json.png?raw=true "Exported JSON")
 
 # DMP Files
-
 * DMP and maDMP of David Hinterndorfer  
 [DMP](https://github.com/Hido1994/madmp/blob/master/docs/dmp_dcc_01256409.pdf)  
 [maDMP](https://github.com/Hido1994/madmp/blob/master/docs/exercise2_dmp_01526409.json)
 
 * DMP and maDMP of Ahmad Alhirthani  
-[DMP](https://github.com/Hido1994/madmp/blob/master/docs/exercise2_dmp_11848870.json)  
 TODO - Ahmad DMP
+[maDMP](https://github.com/Hido1994/madmp/blob/master/docs/exercise2_dmp_11848870.json)  
+
+* Full maDMP for testing
+TODO upload madmp and reference
+
+* Schema used to validate
+TODO upload and reference schema json
