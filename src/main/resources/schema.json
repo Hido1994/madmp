@@ -1,4 +1,4 @@
-{
+﻿{
   "definitions": {},
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "http://example.com/rda_dmp_common_standard.json",
@@ -28,7 +28,7 @@
           "type": "string",
           "title": "The Title Schema",
           "examples": [
-            "Correlation between number of marriages in the EU/austria and students of public universities in austria"
+            "Finding impact of GDP on education attainment in Germany"
           ]
         },
         "description": {
@@ -36,7 +36,7 @@
           "type": "string",
           "title": "The Description Schema",
           "examples": [
-            "Experiment to find out if and how much the number of marriages in the EU and austria correlates with the number of students on public universities in austria."
+            "Experiment to find out the relation between GDP on education attainment in Germany."
           ]
         },
         "dmp_id": {
@@ -74,7 +74,7 @@
           "title": "The Created Schema",
           "default": null,
           "examples": [
-            "2019-04-01T00:00:00.0"
+            "2019-04-01T00:00:00"
           ],
           "format": "date-time"
         },
@@ -83,9 +83,8 @@
           "type": "string",
           "title": "The Modified Schema",
           "default": null,
-          "examples": [
-            "2019-04-10T00:00:00.0"
-          ],
+          "example": "2019-04-10T00:00:00"
+          ,
           "format": "date-time"
         },
         "ethical_issues_exist": {
@@ -128,7 +127,7 @@
               "title": "The Mail Schema",
               "default": null,
               "examples": [
-                "e01526409@student.tuwien.ac.at"
+                "hertani86@gmail.com"
               ],
               "format": "email"
             },
@@ -137,7 +136,7 @@
               "type": "string",
               "title": "The Name Schema",
               "examples": [
-                "David Hinterndorfer"
+                "Ahmad Alhirthani"
               ]
             },
             "contact_id": {
@@ -184,7 +183,7 @@
                 "title": "The mbox Schema",
                 "default": null,
                 "examples": [
-                  "e01526409@student.tuwien.ac.at"
+                  "hertani86@gmail.com"
                 ],
                 "format": "email"
               },
@@ -193,7 +192,7 @@
                 "type": "string",
                 "title": "The Name Schema",
                 "examples": [
-                  "David Hinterndorfer"
+                  "Ahmad Alhirthani"
                 ]
               },
               "contributor_type": {
@@ -299,7 +298,7 @@
                 "type": "string",
                 "title": "The project_start Schema",
                 "examples": [
-                  "2019-04-10T00:00:00.0"
+                  "2019-04-10T00:00:00"
                 ],
                 "format": "date-time"
               },
@@ -308,7 +307,7 @@
                 "type": "string",
                 "title": "The project_end Schema",
                 "examples": [
-                  "2019-04-10T00:00:00.0"
+                  "2019-04-10T00:00:00"
                 ],
                 "format": "date-time"
               },
@@ -349,7 +348,7 @@
                           "type": "string",
                           "title": "The Contact_id Schema",
                           "examples": [
-                            "https://orcid.org/0000-0002-9909-227X"
+                            "https://orcid.org/0000-0001-9909-227X"
                           ]
                         },
                         "grant_id_type": {
@@ -452,9 +451,9 @@
                 "type": "string",
                 "title": "The Issued Schema",
                 "examples": [
-                  "2019-04-01"
+                  "2019-04-01T00:00:00"
                 ],
-                "format": "date"
+                "format": "date-time"
               },
               "dataset_id": {
                 "$id": "#/properties/dmp/properties/dataset/items/properties/dataset_id",
@@ -635,7 +634,7 @@
                       "type": "string",
                       "title": "The Title Schema",
                       "examples": [
-                        "Studierende an öffentlichen Universitäten nach Uni."
+                        "GDP and the ratio of education attainment"
                       ]
                     },
                     "description": {
@@ -643,7 +642,7 @@
                       "type": "string",
                       "title": "The Description Schema",
                       "examples": [
-                        "CSV file showing data about students on public universities in austria."
+                        "CSV file showing the amount of GDP and the ratio of education attainment"
                       ]
                     },
                     "format": {
@@ -680,7 +679,7 @@
                       "type": "string",
                       "title": "The Access_url Schema",
                       "examples": [
-                        "https://www.data.gv.at/katalog/dataset/stat_studierende-an-offentlichen-universitaten-nach-uni"
+                        "https://www.data.gv.at/katalog/dataset/xxxx"
                       ],
                       "format": "uri"
                     },
@@ -689,7 +688,7 @@
                       "type": "string",
                       "title": "The download_url Schema",
                       "examples": [
-                        "https://www.data.gv.at/katalog/dataset/stat_studierende-an-offentlichen-universitaten-nach-uni"
+                        "https://www.data.gv.at/katalog/dataset/xxxx"
                       ],
                       "format": "uri"
                     },
@@ -702,7 +701,7 @@
                       "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/available_till",
                       "type": "string",
                       "title": "The available_till Schema",
-                      "format": "date"
+                      "format": "date-time"
                     },
                     "license": {
                       "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/license",
@@ -731,9 +730,9 @@
                             "type": "string",
                             "title": "The Start_date Schema",
                             "examples": [
-                              "2018-02-12"
+                              "2019-04-01T00:00:00"
                             ],
-                            "format": "date"
+                            "format": "date-time"
                           }
                         }
                       }
@@ -787,7 +786,20 @@
                         "certified_with": {
                           "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host/properties/certified_with",
                           "type": "string",
-                          "title": "The certified_with Schema"
+                          "enum": [
+                            "DIN3164437" ,
+                            "DINI-Zertifikat38" , 
+                            "DSA39" , 
+                            "ISO1636340" , 
+                            "ISO1691941" , 
+                            "TRAC42" , 
+                            "WDS43" , 
+                            "CoreTrustSeal"
+                          ],
+                          "title": "The certified_with Schema",
+                          "examples": [
+                        "DIN3164437"
+                      ]
                         },
                         "geo_location": {
                           "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/host/properties/geo_location",
