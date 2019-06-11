@@ -135,11 +135,14 @@ The application than generates a JSON-File and trigger the download in the brows
 [maDMP](https://github.com/Hido1994/madmp/blob/master/docs/exercise2_dmp_01526409.json)
 
 * DMP and maDMP of Ahmad Alhirthani  
-TODO - Ahmad DMP
+[DMP](https://github.com/Hido1994/madmp/blob/master/docs/dmp_dcc_11848870.pdf)  
 [maDMP](https://github.com/Hido1994/madmp/blob/master/docs/exercise2_dmp_11848870.json)  
 
 * Full maDMP for testing
-TODO upload madmp and reference
+[Full maDMP](https://github.com/Hido1994/madmp/blob/master/docs/testingmaDMP.json)  
+
 
 * Schema used to validate
-TODO upload and reference schema json
+[Full schema](https://github.com/Hido1994/madmp/blob/master/src/main/resources/schema.json)  
+
+
