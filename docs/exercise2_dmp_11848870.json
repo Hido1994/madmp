@@ -3,8 +3,8 @@
     "title": "Finding The Impact of GDP on Education Attainment in Austria",
     "description": "In this project we will try to find how the education attainment in Germany is affected by the gross domestic product. This research depends on two datasets (Education Attainment for Population Aged 15-64, 1870-2010) and (GDP World Bank Data).",
     "language": "en",
-    "created": "2019-04-10T00:00:00.0Z",
-    "modified": "2019-04-22T00:00:00.0Z",
+    "created": "2019-04-10T00:00:00.0",
+    "modified": "2019-04-22T00:00:00.0",
     "ethical_issues_exist": "no",
     "contact": {
       "mail": "e11848870@student.tuwien.ac.at",

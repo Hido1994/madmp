@@ -1,0 +1,243 @@
+{
+  "dmp": {
+    "title": "Finding The Impact of GDP on Education Attainment in Austria",
+    "description": "In this project we will try to find how the education attainment in Germany is affected by the gross domestic product. This research depends on two datasets (Education Attainment for Population Aged 15-64, 1870-2010) and (GDP World Bank Data).",
+    "dmp_id":{
+      "dmp_id":"abc123",
+      "dmp_id_type":"text and number"},
+    "language": "en",
+    "created": "2019-04-10T00:00:00+00:00",
+    "modified": "2019-04-22T00:00:00+00:00",
+    "ethical_issues_exist": "no",
+    "ethical_issues_report":"https://json-schema.org/understanding-json-schema/reference/string.html",
+    "ethical_issues_description":"ethical_issues_description",
+    "contact": {
+      "mail": "e11848870@student.tuwien.ac.at",
+      "name": "Ahmad Alhirthani",
+      "contact_id": {
+        "contact_id": "https://orcid.org/0000-0003-0241-0268",
+        "contact_id_type": "HTTP-ORCID"
+      }
+    },
+    "dm_staff": [{
+      "mbox": "e11848870@student.tuwien.ac.at",
+      "name": "Ahmad Alhirthani",
+      "contributor_type": "",
+      "user_id": {
+        "user_id": "https://orcid.org/0000-0003-0241-0268",
+        "contact_id_type": "HTTP-ORCID"
+      }
+    }],
+    "cost":[{
+      "title":"Project cost",
+      "currency_code":"USD",
+      "value":123
+    }],
+    "project":[{
+      "title":"project title",
+      "description":"project description",
+      "project_start":"2019-04-10T20:20:39+00:00",
+      "project_end":"2020-04-10T20:20:39+00:00",
+      "funding":[{
+        "funding_status": "planned",
+        "grant_id":{
+          "grant_id":"grant id 123",
+          "grant_id_type":"grant id type 123"},
+        "funder_id":{
+          "funder_id":"funder id 123",
+          "funder_id_type":"funder id type 123"
+        }
+      }]
+    }],
+    "dataset": [
+      {
+        "title": "Statistical data used as input",
+        "description": "Statisitcal data which is used as input by the python program.",
+        "type": "dataset",
+        "keyword":"GDP",
+        "data_quality_assurance":"Different methods were applied to assure quality: Clear versioning, Naming conventions, clear project structure, etc.",
+        "preservation_statement":"text of preservation statement ",
+        "issued": "2019-04-10T20:20:39+00:00",
+        "dataset_id":{
+          "dataset_id":"abc123",
+          "grant_id_type":"grant id type"},
+        "personal_data": "no",
+        "sensitive_data": "no",
+        "security_and_privacy":[{
+          "title": "The security_and_privacy Schema",
+          "security and privacy text":""}],
+        "technical_resource":[{
+          "resource_id":{
+            "technical_resource_id":"abc",
+            "technical_resource_id_type":"abc"}}],
+        "metadata":[{
+          "metadata_id":{
+            "metadata_id":"metadata_id",
+            "metadata_id_type":"metadata_id_type"}}],
+        "distribution": [
+          {
+            "title": "Education Attainment for Population Aged 15 and Over",
+            "description": "CSV file showing Education Attainment in most of countries in the world. It consist of 1898 records",
+            "format": "text/csv",
+            "byte_size": 245463,
+            "data_access": "open",
+            "access_url": "http://www.barrolee.com/data/BL_v2.2/BL2013_MF1599_v2.2.csv",
+            "license": [
+              {
+                "license_ref": "https://creativecommons.org/licenses/by/3.0/",
+                "start_date": "2019-04-20T20:20:39+00:00"
+              }
+            ],
+            "host":{
+              "title":"host title",
+              "description":"host description",
+              "support_versioning":"yes",
+              "backup_type":"host backup type",
+              "backup_frequency": "host backup frequency",
+              "availability":"",
+              "certified_with":"ISO1636340",
+              "geo_location":"host geo location",
+              "pid_system":"host pid system"
+            }
+          },
+          {
+            "title": "GDP World Bank Data",
+            "description": "CSV file containing information to map SEMESTER-0 field to year.",
+            "format": "text/csv",
+            "byte_size": 239046,
+            "data_access": "open",
+            "access_url": "https://www.kaggle.com/ibrahimmukherjee/gdp-world-bank-data",
+            "license": [
+              {
+                "license_ref": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "start_date": "2019-04-20T20:20:39+00:00"
+              }
+            ]
+          }
+
+        ]
+      }
+    ]
+  }
+}{
+  "dmp": {
+    "title": "Finding The Impact of GDP on Education Attainment in Austria",
+    "description": "In this project we will try to find how the education attainment in Germany is affected by the gross domestic product. This research depends on two datasets (Education Attainment for Population Aged 15-64, 1870-2010) and (GDP World Bank Data).",
+    "dmp_id":{
+      "dmp_id":"abc123",
+      "dmp_id_type":"text and number"},
+    "language": "en",
+    "created": "2019-04-10T00:00:00+00:00",
+    "modified": "2019-04-22T00:00:00+00:00",
+    "ethical_issues_exist": "no",
+    "ethical_issues_report":"https://json-schema.org/understanding-json-schema/reference/string.html",
+    "ethical_issues_description":"ethical_issues_description",
+    "contact": {
+      "mail": "e11848870@student.tuwien.ac.at",
+      "name": "Ahmad Alhirthani",
+      "contact_id": {
+        "contact_id": "https://orcid.org/0000-0003-0241-0268",
+        "contact_id_type": "HTTP-ORCID"
+      }
+    },
+    "dm_staff": [{
+      "mbox": "e11848870@student.tuwien.ac.at",
+      "name": "Ahmad Alhirthani",
+      "contributor_type": "",
+      "user_id": {
+        "user_id": "https://orcid.org/0000-0003-0241-0268",
+        "contact_id_type": "HTTP-ORCID"
+      }
+    }],
+    "cost":[{
+      "title":"Project cost",
+      "currency_code":"USD",
+      "value":123
+    }],
+    "project":[{
+      "title":"project title",
+      "description":"project description",
+      "project_start":"2019-04-10T20:20:39+00:00",
+      "project_end":"2020-04-10T20:20:39+00:00",
+      "funding":[{
+        "funding_status": "planned",
+        "grant_id":{
+          "grant_id":"grant id 123",
+          "grant_id_type":"grant id type 123"},
+        "funder_id":{
+          "funder_id":"funder id 123",
+          "funder_id_type":"funder id type 123"
+        }
+      }]
+    }],
+    "dataset": [
+      {
+        "title": "Statistical data used as input",
+        "description": "Statisitcal data which is used as input by the python program.",
+        "type": "dataset",
+        "keyword":"GDP",
+        "data_quality_assurance":"Different methods were applied to assure quality: Clear versioning, Naming conventions, clear project structure, etc.",
+        "preservation_statement":"text of preservation statement ",
+        "issued": "2019-04-10T20:20:39+00:00",
+        "dataset_id":{
+          "dataset_id":"abc123",
+          "grant_id_type":"grant id type"},
+        "personal_data": "no",
+        "sensitive_data": "no",
+        "security_and_privacy":[{
+          "title": "The security_and_privacy Schema",
+          "security and privacy text":""}],
+        "technical_resource":[{
+          "resource_id":{
+            "technical_resource_id":"abc",
+            "technical_resource_id_type":"abc"}}],
+        "metadata":[{
+          "metadata_id":{
+            "metadata_id":"metadata_id",
+            "metadata_id_type":"metadata_id_type"}}],
+        "distribution": [
+          {
+            "title": "Education Attainment for Population Aged 15 and Over",
+            "description": "CSV file showing Education Attainment in most of countries in the world. It consist of 1898 records",
+            "format": "text/csv",
+            "byte_size": 245463,
+            "data_access": "open",
+            "access_url": "http://www.barrolee.com/data/BL_v2.2/BL2013_MF1599_v2.2.csv",
+            "license": [
+              {
+                "license_ref": "https://creativecommons.org/licenses/by/3.0/",
+                "start_date": "2019-04-20T20:20:39+00:00"
+              }
+            ],
+            "host":{
+              "title":"host title",
+              "description":"host description",
+              "support_versioning":"yes",
+              "backup_type":"host backup type",
+              "backup_frequency": "host backup frequency",
+              "availability":"",
+              "certified_with":"ISO1636340",
+              "geo_location":"host geo location",
+              "pid_system":"host pid system"
+            }
+          },
+          {
+            "title": "GDP World Bank Data",
+            "description": "CSV file containing information to map SEMESTER-0 field to year.",
+            "format": "text/csv",
+            "byte_size": 239046,
+            "data_access": "open",
+            "access_url": "https://www.kaggle.com/ibrahimmukherjee/gdp-world-bank-data",
+            "license": [
+              {
+                "license_ref": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "start_date": "2019-04-20T20:20:39+00:00"
+              }
+            ]
+          }
+
+        ]
+      }
+    ]
+  }
+}
