@@ -146,8 +146,8 @@ The application than generates a JSON-File and trigger the download in the brows
 [Full schema](https://github.com/Hido1994/madmp/blob/master/src/main/resources/schema.json)  
 
 # Contributers
-[Ahmad Alhirthani](https://orcid.org/0000-0003-0241-0268)
-[David Hinterndorfer](https://orcid.org/0000-0002-9909-227X)  
+* [Ahmad Alhirthani](https://orcid.org/0000-0003-0241-0268) <a href="https://orcid.org/0000-0002-9612-9022" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">orcid.org/0000-0002-9612-9022</a>
+* [David Hinterndorfer](https://orcid.org/0000-0002-9909-227X) <a href="https://orcid.org/0000-0001-5523-9383" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">orcid.org/0000-0001-5523-9383</a>
 
 # LICENCE
 [MIT](https://github.com/Hido1994/madmp/blob/master/LICENSE.md)  
